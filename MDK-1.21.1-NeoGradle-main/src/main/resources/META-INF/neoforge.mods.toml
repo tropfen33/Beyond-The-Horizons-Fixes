@@ -1,0 +1,34 @@
+modLoader = "javafml"
+loaderVersion = "${loader_version_range}"
+license = "${mod_license}"
+
+[[mods]]
+modId = "${mod_id}"
+version = "${mod_version}"
+displayName = "${mod_name}"
+authors = "Tropfen_33"
+description = '''Config-driven fixes for the Beyond The Horizons modpack: backpack slot limits, Create Molten Vents rarity and Yung's Better structure spawn rarity.'''
+
+[[mixins]]
+config = "beyond_the_horizons_fixes.mixins.json"
+
+[[dependencies.${mod_id}]]
+modId = "neoforge"
+type = "required"
+versionRange = "[${neo_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "minecraft"
+type = "required"
+versionRange = "${minecraft_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "sophisticatedcore"
+type = "optional"
+versionRange = "[1.0,)"
+ordering = "AFTER"
+side = "BOTH"
