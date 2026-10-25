@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "backpack.InventoryHandlerMixin",
+    "flowingfluids.PlugWaterFeatureMixin",
     "worldgen.PlacedFeatureMixin",
     "worldgen.StructurePlacementMixin",
     "worldgen.RandomSpreadStructurePlacementMixin",

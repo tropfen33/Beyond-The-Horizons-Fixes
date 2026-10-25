@@ -7,7 +7,7 @@ modId = "${mod_id}"
 version = "${mod_version}"
 displayName = "${mod_name}"
 authors = "Tropfen_33"
-description = '''Config-driven fixes for the Beyond The Horizons modpack: backpack slot limits, Create Molten Vents rarity and Yung's Better structure spawn rarity.'''
+description = '''Config-driven fixes for the Beyond The Horizons modpack: backpack slot limits, Create Molten Vents rarity, Yung's Better structure spawn rarity and a switch for Flowing Fluids' world gen fluid plugging.'''
 
 [[mixins]]
 config = "beyond_the_horizons_fixes.mixins.json"
@@ -31,5 +31,13 @@ side = "BOTH"
 modId = "sophisticatedcore"
 type = "optional"
 versionRange = "[1.0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+# Optional: only needed for the plugFluidsDuringWorldGen switch, which is skipped when absent.
+[[dependencies.${mod_id}]]
+modId = "flowing_fluids"
+type = "optional"
+versionRange = "[0,)"
 ordering = "AFTER"
 side = "BOTH"

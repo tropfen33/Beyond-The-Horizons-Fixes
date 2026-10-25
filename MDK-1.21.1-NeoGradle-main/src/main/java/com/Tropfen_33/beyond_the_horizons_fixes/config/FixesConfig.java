@@ -47,6 +47,8 @@ public final class FixesConfig {
 	private static final ModConfigSpec.BooleanValue STRUCTURE_LOG_ALL;
 	private static final ModConfigSpec.BooleanValue STRUCTURE_LOG_CHANGES;
 
+	private static final ModConfigSpec.BooleanValue FLOWING_FLUIDS_PLUG_WORLDGEN;
+
 	static {
 		ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
 
@@ -149,6 +151,23 @@ public final class FixesConfig {
 
 		builder.pop();
 
+		// ---------------------------------------------------------------- flowing fluids
+		builder.comment("Flowing Fluids (flowing_fluids) integration. Does nothing when that mod is not installed.")
+				.push("flowingFluids");
+
+		FLOWING_FLUIDS_PLUG_WORLDGEN = builder
+				.comment(
+						"Flowing Fluids seals every freshly generated water/lava source that touches air (sides or below)",
+						"with a solid block so it cannot flow away: mud on land, sand in deserts, beaches and oceans, stone/deepslate",
+						"deep down, netherrack in the Nether. That is where the mud around rivers and lakes comes from.",
+						"true  = keep that behaviour (Flowing Fluids default).",
+						"false = skip it, no sealing blocks are placed. World generation may lag more and generated water can spread.",
+						"Only affects chunks generated AFTER the change. The /flowing_fluids debug command that seals fluids in",
+						"nearby chunks by hand keeps working either way.")
+				.define("plugFluidsDuringWorldGen", true);
+
+		builder.pop();
+
 		SPEC = builder.build();
 	}
 
@@ -239,6 +258,13 @@ public final class FixesConfig {
 			return STRUCTURE_DISTANCE.get();
 		}
 		return 1.0;
+	}
+
+	// ---------------------------------------------------------------- flowing fluids
+
+	/** Whether Flowing Fluids may seal generated fluids with blocks; true (its own default) until the config has loaded. */
+	public static boolean plugFluidsDuringWorldGen() {
+		return !SPEC.isLoaded() || FLOWING_FLUIDS_PLUG_WORLDGEN.get();
 	}
 
 	// ---------------------------------------------------------------- parsing
