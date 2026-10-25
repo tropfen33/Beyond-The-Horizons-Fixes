@@ -26,6 +26,7 @@ versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
 
+# Optional: only needed for the backpack slot-limit feature, which is skipped when absent.
 [[dependencies.${mod_id}]]
 modId = "sophisticatedcore"
 type = "optional"
