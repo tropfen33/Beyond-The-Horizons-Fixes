@@ -1,6 +1,7 @@
 modLoader = "javafml"
 loaderVersion = "${loader_version_range}"
 license = "${mod_license}"
+issueTrackerURL = "https://github.com/tropfen33/Beyond-The-Horizons-Fixes/issues"
 
 [[mods]]
 modId = "${mod_id}"
@@ -8,6 +9,7 @@ version = "${mod_version}"
 displayName = "${mod_name}"
 authors = "Tropfen_33"
 description = '''Config-driven fixes for the Beyond The Horizons modpack: backpack slot limits, Create Molten Vents rarity, Yung's Better structure spawn rarity and a switch for Flowing Fluids' world gen fluid plugging.'''
+logoFile = "Beyond The Horizons-Fixes_Logo.jpg"
 
 [[mixins]]
 config = "beyond_the_horizons_fixes.mixins.json"
